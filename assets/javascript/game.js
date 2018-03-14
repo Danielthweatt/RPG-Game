@@ -37,7 +37,7 @@ $('#maceWindu').click(function() {
         opponent = 'Mace Windu';
         opponentStats = '#mWStats'
         opponentHealth = 120;
-        opponentCounter = 15;
+        opponentCounter = 18;
         gameStatusTracker += 1;
         if (wins === 2) {
             $('#instructions').empty();
@@ -66,7 +66,7 @@ $('#yoda').click(function() {
         opponent = 'Yoda';
         opponentStats = '#yStats';
         opponentHealth = 100;
-        opponentCounter = 22;
+        opponentCounter = 23;
         gameStatusTracker += 1;
         if (wins === 2) {
             $('#instructions').empty();
@@ -83,7 +83,7 @@ $('#darthMaul').click(function() {
         character = 'Darth Maul';
         characterStats = '#dMStats';
         characterHealth = 120;
-        characterAttack = 12;
+        characterAttack = 10;
         originalCharacterAttack = characterAttack;
         gameStatusTracker += 1;
     } else if (gameStatusTracker === 1) {
@@ -145,6 +145,7 @@ $('#opponent').click(function() {
             } else {
                 $('#instructions2').text(`You beat ${opponent}! Choose another opponent.`);
                 $('#status').text(`You attacked ${opponent} for ${characterAttack} damage.`);
+                characterAttack += originalCharacterAttack;
                 gameStatusTracker -= 1;
             };
         } else {
