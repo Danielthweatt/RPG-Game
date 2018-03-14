@@ -153,7 +153,7 @@ $('#opponent').click(function() {
             if (wins === 3) {
                 $('#instructions2').text('You win!');
                 $('#status').text('Click anywhere on the page to start over.');
-                gameStatusTracker += 1;
+                setTimeout(function() {gameStatusTracker += 1}, 100);
             } else {
                 $('#instructions2').text(`You beat ${opponent}! Choose another opponent.`);
                 gameStatusTracker -= 1;
@@ -164,7 +164,7 @@ $('#opponent').click(function() {
                 $('#character').empty();
                 $('#instructions2').text('You lose!');
                 $('#status').text('Click anywhere on the page to start over.');
-                gameStatusTracker += 1;
+                setTimeout(function() {gameStatusTracker += 1}, 100);
             } else {
                 $(`${characterStats}`).text(`${character} ${characterHealth}`)
                 $(`${opponentStats}`).text(`${opponent} ${opponentHealth}`)
