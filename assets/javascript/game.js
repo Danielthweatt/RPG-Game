@@ -19,27 +19,28 @@ let wins = 0;
 $('#maceWindu').click(function() {
     if (gameStatusTracker === 0) {
         $('#maceWindu').empty();
-        $('#character').append('<img src="./assets/images/download(2).jpg" alt="Mace Windu" class="img-responsive"><p id="mWStats" class="text-center">Mace Windu 100</p>');
+        $('#character').append('<img src="./assets/images/download(2).jpg" alt="Mace Windu" class="img-responsive"><p id="mWStats" class="text-center">Mace Windu 120</p>');
         $('#instructions').text('Choose Your Opponent:');
         $('#instructions2').text('Choose Wisely');
         character = 'Mace Windu';
         characterStats = '#mWStats'
-        characterHealth = 100;
-        characterAttack = 10;
+        characterHealth = 120;
+        characterAttack = 8;
         originalCharacterAttack = characterAttack;
         gameStatusTracker += 1;
     } else if (gameStatusTracker === 1) {
         $('#maceWindu').empty();
-        $('#opponent').append('<img src="./assets/images/download(2).jpg" alt="Mace Windu" class="img-responsive"><p id="mWStats" class="text-center">Mace Windu 100</p>');
+        $('#opponent').append('<img src="./assets/images/download(2).jpg" alt="Mace Windu" class="img-responsive"><p id="mWStats" class="text-center">Mace Windu 120</p>');
         $('#instructions2').text('Fight!');
         $('#status').text('Click on your opponent to attack.');
+        $('#instructions').text('Other Opponents:');
         opponent = 'Mace Windu';
         opponentStats = '#mWStats'
-        opponentHealth = 100;
-        opponentCounter = 10;
+        opponentHealth = 120;
+        opponentCounter = 15;
         gameStatusTracker += 1;
         if (wins === 2) {
-            $('#instructions').text('');
+            $('#instructions').empty();
         };
     };
 });
@@ -53,7 +54,7 @@ $('#yoda').click(function() {
         character = 'Yoda';
         characterStats = '#yStats';
         characterHealth = 100;
-        characterAttack = 10;
+        characterAttack = 15;
         originalCharacterAttack = characterAttack;
         gameStatusTracker += 1;
     } else if (gameStatusTracker === 1) {
@@ -61,13 +62,14 @@ $('#yoda').click(function() {
         $('#opponent').append('<img src="./assets/images/h1ferMj9-720.jpg" alt="Yoda" class="img-responsive"><p id="yStats" class="text-center">Yoda 100</p>');
         $('#instructions2').text('Fight!');
         $('#status').text('Click on your opponent to attack.');
+        $('#instructions').text('Other Opponents:');
         opponent = 'Yoda';
         opponentStats = '#yStats';
         opponentHealth = 100;
-        opponentCounter = 10;
+        opponentCounter = 22;
         gameStatusTracker += 1;
         if (wins === 2) {
-            $('#instructions').text('');
+            $('#instructions').empty();
         };
     };
 });
@@ -75,27 +77,28 @@ $('#yoda').click(function() {
 $('#darthMaul').click(function() {
     if (gameStatusTracker === 0) {
         $('#darthMaul').empty();
-        $('#character').append('<img src="./assets/images/download.jpg" alt="Darth Maul" class="img-responsive"><p id="dMStats" class="text-center">Darth Maul 100</p>');
+        $('#character').append('<img src="./assets/images/download.jpg" alt="Darth Maul" class="img-responsive"><p id="dMStats" class="text-center">Darth Maul 120</p>');
         $('#instructions').text('Choose Your Opponent:');
         $('#instructions2').text('Choose Wisely');
         character = 'Darth Maul';
         characterStats = '#dMStats';
-        characterHealth = 100;
-        characterAttack = 10;
+        characterHealth = 120;
+        characterAttack = 12;
         originalCharacterAttack = characterAttack;
         gameStatusTracker += 1;
     } else if (gameStatusTracker === 1) {
         $('#darthMaul').empty();
-        $('#opponent').append('<img src="./assets/images/download.jpg" alt="Darth Maul" class="img-responsive"><p id="dMStats" class="text-center">Darth Maul 100</p>');
+        $('#opponent').append('<img src="./assets/images/download.jpg" alt="Darth Maul" class="img-responsive"><p id="dMStats" class="text-center">Darth Maul 120</p>');
         $('#instructions2').text('Fight!');
         $('#status').text('Click on your opponent to attack.');
+        $('#instructions').text('Other Opponents:');
         opponent = 'Darth Maul';
         opponentStats = '#dMStats';
-        opponentHealth = 100;
-        opponentCounter = 10;
+        opponentHealth = 120;
+        opponentCounter = 12;
         gameStatusTracker += 1;
         if (wins === 2) {
-            $('#instructions').text('');
+            $('#instructions').empty();
         };
     };
 });
@@ -117,13 +120,14 @@ $('#darthVadar').click(function() {
         $('#opponent').append('<img src="./assets/images/download(1).jpg" alt="Darth Vadar" class="img-responsive"><p id="dVStats" class="text-center">Darth Vadar 100</p>');
         $('#instructions2').text('Fight!');
         $('#status').text('Click on your opponent to attack.');
+        $('#instructions').text('Other Opponents:');
         opponent = 'Darth Vadar';
         opponentStats = '#dVStats';
         opponentHealth = 100;
-        opponentCounter = 10;
+        opponentCounter = 25;
         gameStatusTracker += 1;
         if (wins === 2) {
-            $('#instructions').text('');
+            $('#instructions').empty();
         };
     };
 });
@@ -131,30 +135,29 @@ $('#darthVadar').click(function() {
 $('#opponent').click(function() {
     if (gameStatusTracker === 2) {
         opponentHealth = opponentHealth - characterAttack;
-        characterHealth = characterHealth - opponentCounter;
         if (opponentHealth < 1) {
             $('#opponent').empty();
-            $(`${characterStats}`).text(`${character} ${characterHealth}`);
             wins += 1;
             if (wins === 3) {
                 $('#instructions2').text('You win!');
-                $('#status').text(`You attacked ${opponent} for ${characterAttack} damage. ${opponent} counter attacked for ${opponentCounter} damage. Click anywhere on the page to start over.`);
+                $('#status').text(`You attacked ${opponent} for ${characterAttack} damage. Click anywhere on the page to start over.`);
                 setTimeout(function() {gameStatusTracker += 1;}, 100);
             } else {
                 $('#instructions2').text(`You beat ${opponent}! Choose another opponent.`);
-                $('#status').text(`You attacked ${opponent} for ${characterAttack} damage. ${opponent} counter attacked for ${opponentCounter} damage.`);
+                $('#status').text(`You attacked ${opponent} for ${characterAttack} damage.`);
                 gameStatusTracker -= 1;
             };
         } else {
+            characterHealth = characterHealth - opponentCounter;
             if (characterHealth < 1) {
-                $('#character').empty();
                 $(`${opponentStats}`).text(`${opponent} ${opponentHealth}`);
+                $('#character').empty();
                 $('#instructions2').text('You lose!');
                 $('#status').text(`You attacked ${opponent} for ${characterAttack} damage. ${opponent} counter attacked for ${opponentCounter} damage. Click anywhere on the page to start over.`);
                 setTimeout(function() {gameStatusTracker += 1;}, 100);
             } else {
-                $(`${characterStats}`).text(`${character} ${characterHealth}`);
                 $(`${opponentStats}`).text(`${opponent} ${opponentHealth}`);
+                $(`${characterStats}`).text(`${character} ${characterHealth}`);
                 $('#status').text(`You attacked ${opponent} for ${characterAttack} damage. ${opponent} counter attacked for ${opponentCounter} damage.`);
                 characterAttack += originalCharacterAttack;
             };
@@ -166,11 +169,16 @@ $(document).click(function() {
     if (gameStatusTracker === 3) {
         $('#status').empty();
         $('#character').empty();
+        $('#opponent').empty();
         $('#instructions2').empty();
+        $('#maceWindu').empty();
+        $('#yoda').empty();
+        $('#darthMaul').empty();
+        $('#darthVadar').empty();
         $('#instructions').text('Choose Your Character:');
-        $('#maceWindu').append('<img src="./assets/images/download(2).jpg" alt="Mace Windu" class="img-responsive"><p id="mWStats" class="text-center">Mace Windu 100</p>');
+        $('#maceWindu').append('<img src="./assets/images/download(2).jpg" alt="Mace Windu" class="img-responsive"><p id="mWStats" class="text-center">Mace Windu 120</p>');
         $('#yoda').append('<img src="./assets/images/h1ferMj9-720.jpg" alt="Yoda" class="img-responsive"><p id="yStats" class="text-center">Yoda 100</p>');
-        $('#darthMaul').append('<img src="./assets/images/download.jpg" alt="Darth Maul" class="img-responsive"><p id="dMStats" class="text-center">Darth Maul 100</p>');
+        $('#darthMaul').append('<img src="./assets/images/download.jpg" alt="Darth Maul" class="img-responsive"><p id="dMStats" class="text-center">Darth Maul 120</p>');
         $('#darthVadar').append('<img src="./assets/images/download(1).jpg" alt="Darth Vadar" class="img-responsive"><p id="dVStats" class="text-center">Darth Vadar 100</p>');
         gameStatusTracker = 0;
         wins = 0;
